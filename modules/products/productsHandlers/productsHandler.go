@@ -24,7 +24,7 @@ func (h *productsHandler) FindOneProduct(c *fiber.Ctx) error {
 	// Call a usecase
 	product, err := h.productsUsecase.FindOneProduct(productId)
 	if err != nil {
-		c.Status(fiber.StatusBadRequest).JSON(
+		return c.Status(fiber.StatusBadRequest).JSON(
 			struct {
 				Message string `json:"message"`
 			}{
